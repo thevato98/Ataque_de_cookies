@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template_string, make_response, redirect, url_for, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 
+
 app = Flask(__name__)
 app.secret_key = 'mi_clave_secreta'  # Necesario para usar flash y manejar sesiones
 
@@ -20,7 +21,7 @@ def home():
         if role == 'admin':
             return render_template_string('''
                 <style>
-                    /* Body y fondo */
+                    
                     body {
                         font-family: 'Roboto', sans-serif;
                         margin: 0;
@@ -74,7 +75,7 @@ def home():
         else:
             return render_template_string('''
                 <style>
-                    /* Body y fondo */
+                    
                     body {
                         font-family: 'Roboto', sans-serif;
                         margin: 0;
@@ -120,7 +121,7 @@ def home():
             ''', user=user)
     return render_template_string('''
         <style>
-            /* Body y fondo */
+            
             body {
                 font-family: 'Roboto', sans-serif;
                 margin: 0;
@@ -183,7 +184,7 @@ def login():
 
     return render_template_string('''
         <style>
-            /* Aquí va el código CSS */
+            
             body {
                 font-family: 'Roboto', sans-serif;
                 margin: 0;
@@ -265,7 +266,7 @@ def register():
             flash('El nombre de usuario ya está registrado', 'error')
             return redirect(url_for('register'))
 
-        # Asignar rol por defecto 'usuario', pero con Burp Suite se puede cambiar a 'admin'
+        
         role = 'usuario'
 
         # Guardar el nuevo usuario (en un proyecto real, se guardaría en una base de datos)
@@ -281,7 +282,7 @@ def register():
 
     return render_template_string('''
         <style>
-            /* Aquí va el código CSS */
+           
             body {
                 font-family: 'Roboto', sans-serif;
                 margin: 0;
